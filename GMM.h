@@ -1,4 +1,8 @@
 #include <string>
+#include <fstream>
+#include <iostream>
+#include "mpc/GMM/Kmeans.h"
+#include "mpc/GMM/Matrix.h"
 
 using namespace std;
 

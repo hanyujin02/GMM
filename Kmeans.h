@@ -1,3 +1,5 @@
+#include <math.h>
+
 class KMeans{
 private:
 	int dimension_data;

@@ -1,9 +1,4 @@
-#include <fstream>
-#include <iostream>
-
-#include "GMM.h"
-#include "KMeans.h"
-#include "Matrix.h"
+#include "mpc/GMM/GMM.h"
 
 Gaussian_Mixture_Model::Gaussian_Mixture_Model(string type_covariance, int dimension_data, int number_gaussian_components){
 	this->type_covariance = type_covariance;
@@ -324,7 +319,7 @@ double Gaussian_Mixture_Model::Gaussian_Distribution(double data[], double mean[
 	}
 	result = 1.0 / (pow(2 * 3.1415926535897931, dimension_data / 2.0) * sqrt(determinant)) * exp(-0.5 * sum);
 
-	if (_isnan(result) || !_finite(result)){
+	if (__isnan(result) || !finite(result)){
 		fprintf(stderr, "[Gaussian Distribution], [The covariance matrix is rank deficient], [result: %lf]\n", result);
 	}
 	return result;
@@ -358,7 +353,7 @@ double Gaussian_Mixture_Model::Gaussian_Distribution(double data[], double mean[
 
 	result = 1.0 / (pow(2 * 3.1415926535897931, dimension_data / 2.0) * sqrt(matrix.Determinant(type_covariance, dimension_data, covariance))) * exp(-0.5 * sum);
 
-	if (_isnan(result) || !_finite(result)){
+	if (__isnan(result) || !finite(result)){
 		fprintf(stderr, "[Gaussian Distribution], [The covariance matrix is rank deficient], [result: %lf]\n", result);
 	}
 	return result;

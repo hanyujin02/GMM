@@ -1,6 +1,6 @@
 #include <fstream>
 
-#include "GMM.h"
+#include "mpc/GMM/GMM.h"
 
 int main(){
 	string type_covariance = "full"; // <-> "diagonal"

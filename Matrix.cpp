@@ -1,4 +1,4 @@
-#include "Matrix.h"
+#include "mpc/GMM/Matrix.h"
 
 Matrix::Matrix(){
 	number_rows = 0;
