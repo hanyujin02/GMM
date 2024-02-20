@@ -56,10 +56,10 @@ Gaussian_Mixture_Model::~Gaussian_Mixture_Model(){
 }
 
 void Gaussian_Mixture_Model::Initialize(int number_data, double **data){
-	// KMeans kmeans = KMeans(dimension_data, number_gaussian_components);
+	KMeans kmeans = KMeans(dimension_data, number_gaussian_components);
 
-	// kmeans.Initialize(number_data, data);
-	// while (kmeans.Cluster(number_data, data));
+	kmeans.Initialize(number_data, data);
+	while (kmeans.Cluster(number_data, data));
 
 	for (int i = 0; i < number_gaussian_components; i++){
 		for (int j = 0; j < dimension_data; j++){
@@ -72,9 +72,9 @@ void Gaussian_Mixture_Model::Initialize(int number_data, double **data){
 				}
 			}
 		}
-		// for (int j = 0; j < dimension_data; j++){
-		// 	mean[i][j] = kmeans.centroid[i][j];
-		// }
+		for (int j = 0; j < dimension_data; j++){
+			mean[i][j] = kmeans.centroid[i][j];
+		}
 		weight[i] = 1.0 / number_gaussian_components;
 	}
 }
